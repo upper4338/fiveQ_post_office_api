@@ -1,0 +1,20 @@
+server:
+  port: 0
+  error:
+    include-binding-errors: always
+    include-message: always
+spring:
+  application:
+    name: post-office-api
+  cloud:
+    discovery:
+      enabled: true
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    service-url:
+      defaultZone: http://localhost:8010/eureka
+  instance:
+    instanceId: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+    preferIpAddress: true
